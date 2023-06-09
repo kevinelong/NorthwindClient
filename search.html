@@ -13,8 +13,14 @@
 </body>
 <script>
     function onClickCategory(event){
-        const category_id = event.target.dataset.id;
-        getProducts(category_id);
+        window.category_name = event.target.innerHTML; //remember in global
+        getProducts(event.target.dataset.id);
+    }
+
+    function onClickProduct(event){
+        window.location = "details.html"+
+        "?product_id=" + event.target.dataset.id +
+        "&category_name=" + window.category_name;
     }
 
     function displayCategory(item){
@@ -31,6 +37,8 @@
     function displayProduct(item){
         const element = document.createElement("button");
         element.innerHTML = item.productName;
+        element.dataset.id = item.productId;
+        element.addEventListener("click", onClickProduct)
         product_target.appendChild(element);
     }
 

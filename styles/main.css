@@ -3,3 +3,8 @@ body{
     background-color: darkblue;
     color: antiquewhite;
 }
+nav a,
+nav a:visited{
+    color: white;
+    text-decoration: none;
+}
